@@ -1,0 +1,141 @@
+<div id="import-videos-gcs">
+    <sly-style>
+        #import-videos-gcs .input-label .right-side .text-muted {
+            color: black;
+        }
+    </sly-style>
+
+    <sly-card class="mt15" title="1. Input data">
+
+        <sly-field title="Path to folder with videos"
+                   description="Copy path to your folder with videos in Team Files">
+            <el-input v-model="state.pathToVideos" placeholder="Please input path to folder"></el-input>
+        </sly-field>
+
+        <el-button
+                :disabled="!state.resultingProjectName || data.finished"
+                type="primary"
+                :loading="data.started"
+                @click="data.started = true; command('preview')">
+            <i class="zmdi zmdi-play" style="margin-right: 5px"></i> Scan directory
+        </el-button>
+    </sly-card>
+
+    <sly-card v-if="data.tree" class="mt15" title="2. Select videos or folders"
+              subtitle="All selected videos/directories will be imported. Allowed Video extenstions: AVI MP4 3GP
+              FLV WEBM WMV MOV MKV">
+        <div>
+            <sly-file-viewer :list="data.tree" v-model="state.selected"></sly-file-viewer>
+        </div>
+    </sly-card>
+
+    <sly-card v-show="state.selected.length > 0" class="mt15" title="3. Download settings"
+              subtitle="Select destination project and dataset">
+
+        <sly-field title="Videos extention">
+            <el-checkbox v-model="state.checked" disabled>All videos will be converted to mp4 format</el-checkbox>
+        </sly-field>
+
+        <sly-field title="Result project"
+                   description="Define destination project and dataset">
+            <div class="fflex">
+
+                <el-radio class="radio"
+                          v-model="state.dstProjectMode"
+                          label="newProject"
+                          @input="(val) => {
+                            if (val === 'newProject') {
+                                state.dstDatasetMode = 'newDataset';
+                            }
+                          }"
+                >
+                    Create new project
+                </el-radio>
+                <el-radio class="radio" v-model="state.dstProjectMode" label="existingProject">Add to existing project
+                </el-radio>
+            </div>
+
+            <div class="mt5">
+                <div v-if="state.dstProjectMode === 'newProject'">
+                    <el-input placeholder="Please input project name" v-model="state.dstProjectName"></el-input>
+                    <div class="mt5" style="color: #5a6772">
+                        <i>If project with the same name already exists, a new name will be generated automatically</i>
+                    </div>
+                </div>
+                <div v-if="state.dstProjectMode === 'existingProject'">
+                    <sly-select-project
+                            :workspace-id="data.workspaceId"
+                            :project-id.sync="state.dstProjectId"
+                            :options="{showLabel: false, availableTypes: ['videos']}"
+                    >
+                    </sly-select-project>
+                </div>
+            </div>
+        </sly-field>
+
+        <sly-field title="Result dataset"
+                   description="All selected items will be placed to a single dataset. To create multiple datasets for
+                   different subsets of selected items do the following: select items -> import to one dataset, then select another items
+                    -> import them to another dataset, and so on ...">
+            <div class="fflex">
+                <el-radio class="radio" v-model="state.dstDatasetMode" label="newDataset">Create new dataset</el-radio>
+                <el-radio class="radio"
+                          v-model="state.dstDatasetMode"
+                          label="existingDataset"
+                          :disabled="state.dstProjectMode === 'newProject'">
+                    Add to existing dataset
+                </el-radio>
+            </div>
+            <div class="mt5">
+                <div v-if="state.dstDatasetMode === 'newDataset'">
+                    <el-input placeholder="Please input dataset name" v-model="state.dstDatasetName"></el-input>
+                    <div class="mt5" style="color: #5a6772">
+                        <i>If dataset with the same name already exists, a new name will be generated automatically</i>
+                    </div>
+                </div>
+                <div v-if="state.dstDatasetMode === 'existingDataset'">
+                    <sly-select-dataset
+                            :project-id="state.dstProjectId"
+                            :datasets.sync="state.selectedDatasetName"
+                            :options="{showLabel: false}"
+                    >
+                    </sly-select-dataset>
+                </div>
+            </div>
+        </sly-field>
+
+        <el-button
+                class="regular mr10" type="primary"
+                style="align-self: flex-end;"
+                :loading="data.started === true"
+                :disabled="(state.dstProjectMode === 'newProject' && state.dstProjectName.length === 0) ||
+                               (state.dstProjectMode === 'existingProject' && !state.dstProjectId) ||
+                               (state.dstDatasetMode === 'newDataset' && state.dstDatasetName.length === 0) ||
+                               (state.dstDatasetMode === 'existingDataset' && !state.selectedDatasetName)
+                               "
+                @click="data.started = true; command('import_videos')">
+            <i class="zmdi zmdi-play mr5"></i> Start import
+        </el-button>
+        <div class="mt5" v-if="state.dstProjectMode === 'newProject' && state.dstProjectName.length === 0"
+             style="color: red">
+            Please, define the name of a new project
+        </div>
+        <div class="mt5" v-if="state.dstProjectMode === 'existingProject' && !state.dstProjectId" style="color: red">
+            Please, select one of the existing projects
+        </div>
+        <div class="mt5" v-if="state.dstDatasetMode === 'newDataset' && state.dstDatasetName.length === 0"
+             style="color: red">
+            Please, define the name of a new dataset
+        </div>
+        <div class="mt5" v-if="state.dstDatasetMode === 'existingDataset' && !state.selectedDatasetName"
+             style="color: red">
+            Please, select one of the existing datasets
+        </div>
+
+        <div v-if="data.progressName1" class="mt10">
+            <div>{{data.progressName1}}: {{data.currentProgressLabel1}} / {{data.totalProgressLabel1}}</div>
+            <el-progress :percentage="Math.round(data.currentProgress1 * 100 / data.totalProgress1)"></el-progress>
+        </div>
+
+    </sly-card>
+</div>
