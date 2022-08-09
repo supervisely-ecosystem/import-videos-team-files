@@ -1,5 +1,5 @@
 <div align="center" markdown>
-<img src="https://i.imgur.com/Wo7XOMm.png"/>
+<img src="https://user-images.githubusercontent.com/48245050/182639671-4b182b0a-e13c-4736-b8f7-53291f1e7373.png"/>
 
 
 
