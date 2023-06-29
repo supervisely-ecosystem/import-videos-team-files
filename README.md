@@ -42,21 +42,21 @@ Application imports selected videos from `Team Files` to selected destination.
 
 **Step 2**: Run app from `Team` -> `Plugins & Apps` page.  After running the app you will be redirected to the `Tasks` page.
 
-<img src="https://i.imgur.com/eOIRUFQ.png"/>
+<img src="media/htr1.png"/>
 
 **Step 3**: Waiting until the app is started. Once app is started, new task will appear in `workspace tasks` (1). Wait for message `Application is started ...` and then press `Open` button (2).
 
-<img src="https://i.imgur.com/LXFkpuB.png"/>
+<img src="media/htr3.png"/>
 
 ## How to use
 
 **Step 1**: Copy path to folder with videos from `Team Files` and paste path to the text field.
 
-<img src="https://i.imgur.com/4aTW5bk.gif"/>
+<img src="media/htu1.gif"/>
 
 **Step 2:** Press the `Scan directory` button.
 
-<img src="https://i.imgur.com/M8buUJ2.png"/>
+<img src="media/htu2.pngg"/>
 
 **Step 3:** Select videos or folders with videos to download.
 
@@ -64,18 +64,18 @@ Application imports selected videos from `Team Files` to selected destination.
 
 **Step 5:** Press the `START IMPORT` button.
 
-<img src="https://i.imgur.com/FnY6cqo.png" width="600"/>
+<img src="media/htu2a.png" width="600"/>
 
 **Note:** When import is finished, you can find imported videos in selected project.
 
-<img src="https://i.imgur.com/FiMdO0Z.png" width="400"/>
+<img src="media/htu2b.png" width="400"/>
 
 Application will continue its work, so you can import another videos.
 You can stop app session in `Plugins & Apps` -> `Import videos in MP4 format` by pressing the `STOP` button.
 
-<img src="https://i.imgur.com/7IFlY2Q.png" width="600"/>
+<img src="media/htu2c.png" width="600"/>
 
 ### Watch Tutorial Video
 <a data-key="sly-embeded-video-link" href="https://youtu.be/-2CtWnBN9M8" data-video-code="2CtWnBN9M8">
-    <img src="https://i.imgur.com/p1uZEXn.png" alt="SLY_EMBEDED_VIDEO_LINK"  style="max-width:100%;">
+    <img src="media/demo.png" alt="SLY_EMBEDED_VIDEO_LINK"  style="max-width:100%;">
 </a>
