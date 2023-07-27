@@ -1,17 +1,17 @@
 {
-  "name": "Import Videos from Team Files",
-  "type": "app",
-  "categories": [
-    "import",
-    "videos"
-  ],
-  "description": "Import selected videos from Team Files to selected destination",
-  "docker_image": "supervisely/base-py-sdk:6.35.0",
-  "main_script": "src/main.py",
-  "gui_template": "src/gui.html",
-  "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/DHV83NM.png",
-  "icon_background": "#FFFFFF",
-  "disable_stop": true,
-  "poster": "https://user-images.githubusercontent.com/48245050/182639671-4b182b0a-e13c-4736-b8f7-53291f1e7373.png"
+    "name": "Import Videos from Team Files",
+    "type": "app",
+    "categories": [
+        "import",
+        "videos"
+    ],
+    "description": "Import selected videos from Team Files to selected destination",
+    "docker_image": "supervisely/import-export:0.0.1",
+    "main_script": "src/main.py",
+    "gui_template": "src/gui.html",
+    "task_location": "workspace_tasks",
+    "icon": "https://i.imgur.com/DHV83NM.png",
+    "icon_background": "#FFFFFF",
+    "disable_stop": true,
+    "poster": "https://user-images.githubusercontent.com/48245050/182639671-4b182b0a-e13c-4736-b8f7-53291f1e7373.png"
 }
