@@ -11,11 +11,11 @@
   <a href="#How-To-Use">How To Use</a>
 </p>
 
-[![](https://img.shields.io/badge/supervisely-ecosystem-brightgreen)](https://ecosystem.supervise.ly/apps/supervisely-ecosystem/import-videos-team-files)
-[![](https://img.shields.io/badge/slack-chat-green.svg?logo=slack)](https://supervise.ly/slack)
+[![](https://img.shields.io/badge/supervisely-ecosystem-brightgreen)](https://ecosystem.supervisely.com/apps/supervisely-ecosystem/import-videos-team-files)
+[![](https://img.shields.io/badge/slack-chat-green.svg?logo=slack)](https://supervisely.com/slack)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/supervisely-ecosystem/import-videos-team-files)
-[![views](https://app.supervise.ly/img/badges/views/supervisely-ecosystem/import-videos-team-files.png)](https://supervise.ly)
-[![runs](https://app.supervise.ly/img/badges/runs/supervisely-ecosystem/import-videos-team-files.png)](https://supervise.ly)
+[![views](https://app.supervisely.com/img/badges/views/supervisely-ecosystem/import-videos-team-files.png)](https://supervisely.com)
+[![runs](https://app.supervisely.com/img/badges/runs/supervisely-ecosystem/import-videos-team-files.png)](https://supervisely.com)
 
 </div>
 
@@ -38,7 +38,7 @@ Application imports selected videos from `Team Files` to selected destination.
 
 ## How To Run 
 
-**Step 1**: Add app to your team from [Ecosystem](https://app.supervise.ly/apps/ecosystem/import-videos-from-team-files) if it is not there.
+**Step 1**: Add app to your team from [Ecosystem](https://app.supervisely.com/apps/ecosystem/import-videos-from-team-files) if it is not there.
 
 **Step 2**: Run app from `Team` -> `Plugins & Apps` page.  After running the app you will be redirected to the `Tasks` page.
 
