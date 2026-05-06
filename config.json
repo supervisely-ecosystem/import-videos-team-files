@@ -1,12 +1,13 @@
 {
     "name": "Import Videos from Team Files",
     "type": "app",
+    "instance_version": "6.15.60",
     "categories": [
         "import",
         "videos"
     ],
     "description": "Import selected videos from Team Files to selected destination",
-    "docker_image": "supervisely/import-export:0.0.5",
+    "docker_image": "supervisely/import-export:6.73.564",
     "main_script": "src/main.py",
     "gui_template": "src/gui.html",
     "task_location": "workspace_tasks",
